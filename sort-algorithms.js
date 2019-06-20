@@ -93,6 +93,18 @@ function bucketSort(arr, lowest, highest){
 
 } 
 
+// 7. Sort in place
+function randomizeArray(array) {
+  for(let i = array.length - 1; i > 0; i--) {
+    let randomIndex = Math.floor(Math.random() * (i+1))
+     let tmp = array[i]
+     array[i] = array[randomIndex]
+     array[randomIndex] = tmp
+  }
+  return array
+}
+// [1, 4, 3, 5, 6, 9]
+// [4, 3, 5, 6, 1, 9]
 
-
-bucketSort(numbers, 1, 7);
+// bucketSort(numbers, 1, 7);
+console.log(randomizeArray([1, 4, 3, 5, 6, 9]))
