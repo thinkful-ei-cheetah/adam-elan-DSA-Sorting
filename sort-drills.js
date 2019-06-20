@@ -159,3 +159,4 @@ function merge(array, left, right) {
   return array;
 }
 
+module.exports = mSort;
