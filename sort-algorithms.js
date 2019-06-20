@@ -1,49 +1,29 @@
 'use strict';
 const LL = require('./linkedlist');
 
-// function main(){
-//   let list = new LL();
-//   list.insertFirst(2);
-//   list.insertLast(3);
-//   list.insertLast(1);
-//   list.insertLast(8);
-//   list.insertLast(32);
+function main(){
+  let list = new LL();
+  list.insertFirst(2);
+  list.insertLast(3);
+  list.insertLast(1);
+  list.insertLast(8);
+  list.insertLast(32);
+  console.log(list)
+  
 
-//   let array = [];
+}
 
-//   let count = 0;
-//   let countList = list;
-//   let leftPart = list;
-//   let leftPointer = list;
-//   let rightPart = null;
-//   let rightPointer = null;
+// function sortLinkedList(LL) {
+//   const list = LL
+//   if(list.next == null) return LL
 
-
-//   if(list.next === null){
-//     return list;
+//   let count = 0
+//   while(list.next !== null) {
+//     count++
+//     list = list.next
 //   }
-
-//   while(countList.head.next !== null){
-//     count++;
-//     countList = list.next;
-//   }
-
-//   let mid = Math.floor(count /2);
-//   let countLeft = 0;
-
-//   while(countLeft < mid){
-//     countLeft++;
-//     leftPointer = leftPointer.next;
-//   }
-
-//   rightPart = new LL(leftPointer.next);
-//   leftPointer.next = null;
-//   console.log(rightPart);
-
-//   //return mSort();
 // }
-
-// // console.log(JSON.stringify(main()));
+// console.log(JSON.stringify(main()));
 // main();
 
 
@@ -86,12 +66,26 @@ function merge(array, left, right) {
 const numbers = [1,4,2,6,2,6,3,7];
 
 function bucketSort(arr, lowest, highest){
-  
-  for(let i = 0; i< arr.length; i++){
 
+  let bucketSize = Math.floor(Math.sqrt(arr.length))
+  let firstBucket = []
+  let secondBucket = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] < (highest+lowest)/2) {
+      firstBucket.push(arr[i])
+    } else {
+      secondBucket.push(arr[i])
+    }
   }
+  
+  mSort(firstBucket)
+  mSort(secondBucket)
+  return firstBucket.concat(secondBucket)  
 
 } 
+
+console.log(bucketSort([1,4,2,6,2,6,3,7], 1, 7))
 
 // 7. Sort in place
 function randomizeArray(array) {
@@ -107,4 +101,10 @@ function randomizeArray(array) {
 // [4, 3, 5, 6, 1, 9]
 
 // bucketSort(numbers, 1, 7);
-console.log(randomizeArray([1, 4, 3, 5, 6, 9]))
+// console.log(randomizeArray([1, 4, 3, 5, 6, 9]))
+
+//8. Sorting books
+console.log(mSort(['Cauliflower', 'Banana', 'Asparagus', 'Harry Potter', 'Lord of the Rings', 'Peaches', 'Nectarines', 'Mistborn']))
+
+
+
